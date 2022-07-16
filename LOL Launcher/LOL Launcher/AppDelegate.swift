@@ -1,10 +1,3 @@
-//
-//  AppDelegate.swift
-//  LOL Launcher
-//
-//  Created by Jovi on 7/16/22.
-//
-
 import Cocoa
 
 @main
@@ -36,6 +29,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         return true
     }
     
+    func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
+        return true
+    }
+    
     func generateLocaleMenu() -> NSMenu {
         let menu = NSMenu(title: "languages")
         
@@ -58,5 +55,6 @@ extension AppDelegate {
     
     @IBAction func launch_click(_ sender: Any?) {
         LOLLauncher.launch(selectedItem)
+        window.orderOut(nil)
     }
 }

@@ -1,10 +1,3 @@
-//
-//  Launcher.swift
-//  LOL Launcher
-//
-//  Created by Jovi on 7/16/22.
-//
-
 import Cocoa
 
 struct LOLLauncher {
@@ -90,8 +83,12 @@ struct LOLLauncher {
     
     static func launch(_ language: LOLLauncher.Locale = .en) {
         if let appURL = NSWorkspace.shared.urlForApplication(withBundleIdentifier: "com.riotgames.leagueoflegends") {
-            let args = ["--args", "--locale=\(language.rawValue)"]
-            _ = try? NSWorkspace.shared.launchApplication(at: appURL, options: ., configuration: [NSWorkspace.LaunchConfigurationKey.arguments: args])
+//            let args = ["--args", "--locale=\(language.rawValue)"]
+//            _ = try? NSWorkspace.shared.launchApplication(at: appURL, options: .default, configuration: [NSWorkspace.LaunchConfigurationKey.arguments: args])
+            
+            let cmd = "open \(appURL.path.replacingOccurrences(of: " ", with: "\\ ")) --args --locale=\(language.rawValue) &"
+            TaskHandler.createTask(command: "/bin/sh", arguments: ["-c", cmd]) { _, _ in
+            }
         }
     }
 }
