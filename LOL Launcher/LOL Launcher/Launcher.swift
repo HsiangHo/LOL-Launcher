@@ -5,8 +5,7 @@
 //  Created by Jovi on 7/16/22.
 //
 
-import Foundation
-import AppKit
+import Cocoa
 
 struct LOLLauncher {
     enum Locale: String {
@@ -89,10 +88,10 @@ struct LOLLauncher {
     
     static var allLanguages: [LOLLauncher.Locale] = [.ja, .ko, .zh_hans, .zh_hant, .es, .es_419, .en, .fr, .de, .it, .pl, .ro, .el, .pt, .hu, .ru, .tr]
     
-    static func launch(language: LOLLauncher.Locale = .en) {
+    static func launch(_ language: LOLLauncher.Locale = .en) {
         if let appURL = NSWorkspace.shared.urlForApplication(withBundleIdentifier: "com.riotgames.leagueoflegends") {
             let args = ["--args", "--locale=\(language.rawValue)"]
-            _ = try? NSWorkspace.shared.launchApplication(at: appURL, options: .default, configuration: [NSWorkspace.LaunchConfigurationKey.arguments: args])
+            _ = try? NSWorkspace.shared.launchApplication(at: appURL, options: ., configuration: [NSWorkspace.LaunchConfigurationKey.arguments: args])
         }
     }
 }
