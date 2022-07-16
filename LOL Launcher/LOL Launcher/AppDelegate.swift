@@ -4,6 +4,9 @@ import Cocoa
 class AppDelegate: NSObject, NSApplicationDelegate {
     @IBOutlet var window: NSWindow!
     @IBOutlet var btnLanguages: NSPopUpButton!
+    @IBOutlet var btnLaunch: NSButton!
+    @IBOutlet var lbLaunching: NSTextField!
+    @IBOutlet var piLaunching: NSProgressIndicator!
     
     private var selectedItem: LOLLauncher.Locale = LOLLauncher.Locale(rawValue: (UserDefaults.standard.string(forKey: "user-selected") ?? "")) ?? .en {
         didSet {
@@ -54,7 +57,13 @@ extension AppDelegate {
     }
     
     @IBAction func launch_click(_ sender: Any?) {
+        btnLaunch.isHidden = true
+        lbLaunching.isHidden = false
+        piLaunching.isHidden = false
+        piLaunching.startAnimation(nil)
         LOLLauncher.launch(selectedItem)
-        window.orderOut(nil)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
+            self.window.orderOut(nil)
+        }
     }
 }

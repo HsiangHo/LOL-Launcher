@@ -16,6 +16,9 @@
         <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="LOL_Launcher" customModuleProvider="target">
             <connections>
                 <outlet property="btnLanguages" destination="hjq-ll-l45" id="4RM-NG-2P7"/>
+                <outlet property="btnLaunch" destination="uXt-xv-J7M" id="AFD-d9-pWF"/>
+                <outlet property="lbLaunching" destination="wy9-Y1-wxC" id="VTW-Fo-aVY"/>
+                <outlet property="piLaunching" destination="wb1-IB-BgB" id="rKD-ev-Y3e"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="gIp-Ho-8D9"/>
             </connections>
         </customObject>
@@ -103,6 +106,11 @@
                 <rect key="frame" x="0.0" y="0.0" width="300" height="435"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+                    <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zp0-YO-zbx">
+                        <rect key="frame" x="50" y="153" width="200" height="200"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="logo" id="eoX-lo-aef"/>
+                    </imageView>
                     <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hjq-ll-l45">
                         <rect key="frame" x="47" y="93" width="207" height="25"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -121,7 +129,7 @@
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uXt-xv-J7M">
                         <rect key="frame" x="75" y="50" width="150" height="32"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="push" title="Launch" bezelStyle="rounded" imagePosition="leading" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="5E1-dQ-QiU">
+                        <buttonCell key="cell" type="push" title="Launch" bezelStyle="rounded" imagePosition="left" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="5E1-dQ-QiU">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                             <string key="keyEquivalent" base64-UTF8="YES">
@@ -132,11 +140,19 @@ DQ
                             <action selector="launch_click:" target="Voe-Tx-rLC" id="yhd-wU-oyV"/>
                         </connections>
                     </button>
-                    <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zp0-YO-zbx">
-                        <rect key="frame" x="50" y="153" width="200" height="200"/>
+                    <progressIndicator hidden="YES" fixedFrame="YES" maxValue="100" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="wb1-IB-BgB">
+                        <rect key="frame" x="100" y="59" width="16" height="16"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="logo" id="eoX-lo-aef"/>
-                    </imageView>
+                    </progressIndicator>
+                    <textField hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wy9-Y1-wxC">
+                        <rect key="frame" x="121" y="60" width="79" height="16"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" lineBreakMode="clipping" title="Launching..." id="8OC-1w-UiA">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
                 </subviews>
             </view>
             <point key="canvasLocation" x="290" y="437.5"/>
